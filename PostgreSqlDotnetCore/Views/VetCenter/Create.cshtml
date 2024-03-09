@@ -1,0 +1,131 @@
+﻿@model PostgreSqlDotnetCore.Models.VetCenter
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <h4>VetCenter</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.name, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.adress, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.adress, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.adress, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.description, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.description, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.description, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.workinghours, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.workinghours, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.workinghours, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.phonenumber, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.phonenumber, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.phonenumber, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.latitude, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.latitude, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.latitude, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.longitude, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.longitude, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.longitude, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    @*<div class="form-group">
+            @Html.LabelFor(model => model.citiesid, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.citiesid, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.citiesid, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+    <div class="form-group">
+        <label for="citiesid">Citie:</label>
+        <select class="form-control" id="citiesid" name="citiesid">
+            <option value="">Select city</option>
+            <option value="1">Скопје</option>
+            <option value="1">Охрид</option>
+            <option value="1">Скопје</option>
+           @*  <option value="1">Берово</option>
+            <option value="2">Битола</option>
+            <option value="3">Богданци</option>
+            <option value="4">Валандово</option>
+            <option value="5">Велес</option>
+            <option value="6">Виница</option>
+            <option value="7">Гевгелија</option>
+            <option value="8">Гостивар</option>
+            <option value="9">Дебар</option>
+            <option value="10">Делчево</option>
+            <option value="11">Демир Капија</option>
+            <option value="12">Демир Хисар</option>
+            <option value="13">Кавадарци</option>
+            <option value="14">Кичево</option>
+            <option value="15">Кочани</option>
+            <option value="16">Кратово</option>
+            <option value="17">Крива Паланка</option>
+            <option value="18">Крушево</option>
+            <option value="19">Куманово</option>
+            <option value="20">Македонска Каменица</option>
+            <option value="21">Македонски Брод</option>
+            <option value="22">Неготино</option>
+            <option value="23">Охрид</option>
+            <option value="24">Пехчево</option>
+            <option value="25">Прилеп</option>
+            <option value="26">Пропиштип</option>
+            <option value="27">Радовиш</option>
+            <option value="28">Ресен</option>
+            <option value="29">Свети Николе</option>
+            <option value="30">Скопје</option>
+            <option value="31">Струга</option>
+            <option value="32">Струмица</option>
+            <option value="33">Тетово</option>
+            <option value="34">Штип</option> *@
+        </select>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

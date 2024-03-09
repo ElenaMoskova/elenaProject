@@ -1,0 +1,59 @@
+﻿@model PostgreSqlDotnetCore.Models.PetsClass
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>PetsClass</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.color)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.color)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.description)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.dateofbirthday)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dateofbirthday)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.usersid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.usersid)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.typeofpetsid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.typeofpetsid)
+        </dd>
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-dark" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

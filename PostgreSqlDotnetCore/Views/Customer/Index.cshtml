@@ -1,0 +1,77 @@
+﻿@model IEnumerable<PostgreSqlDotnetCore.Models.UsersClass>
+
+@{
+    ViewBag.Title = "Customer";
+}
+
+<h2>Customer</h2>
+@{
+    if (Model == null)
+    {
+        <b>
+            <br />
+            <h4>Not Authorize</h4>
+        </b>
+    }
+    else
+    {
+
+        <p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.lastname)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.email)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.number)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.role_id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.jobs_id)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.lastname)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.number)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GetRoleName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GetJobName)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    }
+}

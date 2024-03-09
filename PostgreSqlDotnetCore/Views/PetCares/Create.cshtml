@@ -1,0 +1,73 @@
+﻿@model PostgreSqlDotnetCore.Models.Pet_CaresClass
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create a new one</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <h4>Pet_CaresClass</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.title, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.title, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.title, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.description, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.description, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.description, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.dateending, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.dateending, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.dateending, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+   @*  <div class="form-group">
+        @Html.LabelFor(model => model.vetcentersid, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.vetcentersid, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.vetcentersid, "", new { @class = "text-danger" })
+        </div>
+    </div> *@
+        <div class="form-group">
+            <label class="control-label col-md-2" for="vetcentersid">VetCenter:</label>
+            <div class="col-md-10 ">
+                <select class="form-control" id="vetcentersid" name="vetcentersid">
+                    <option value="">Select VetCenter</option>
+                    <option value="1">Vet Svet</option>
+                    <option value="2">Veterinarian Ambulance - Dr.Tonit</option>
+                    <option value="4">Vet In</option>
+                </select>
+            </div>
+        </div>
+
+
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <br />
+            <input type="submit" value="Create" class="btn btn-dark" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

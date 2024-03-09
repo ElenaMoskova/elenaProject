@@ -1,0 +1,66 @@
+﻿@model IEnumerable<PostgreSqlDotnetCore.Models.PetsClass>
+
+@{
+    ViewBag.Title = "PetsClass";
+}
+
+<h2>PetsClass</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+
+        <th>
+            @Html.DisplayNameFor(model => model.color)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dateofbirthday)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.usersid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.typeofpetsid)
+        </th>
+
+
+        <th></th>
+
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.color)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dateofbirthday)
+        </td>
+           
+        <td>
+            @Html.DisplayFor(modelItem => item.usersid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.typeofpetsid)
+        </td>
+
+
+
+
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+            @Html.ActionLink("Details", "Details", new { id = item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.id })
+        </td>
+    </tr>
+}
+
+</table>

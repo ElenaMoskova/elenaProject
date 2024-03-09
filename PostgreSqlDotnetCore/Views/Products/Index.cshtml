@@ -1,0 +1,200 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@model IEnumerable<PostgreSqlDotnetCore.Models.ProductsClass>
+
+@{
+    ViewBag.Title = "Products";
+}
+<style>
+    .edit-crud-products > a {
+        background-color: black;
+        padding: 3px;
+        border-radius: 5px;
+        color: white;
+    }
+
+    .item-product {
+        color: #fff;
+        margin-bottom: 16px;
+    }
+
+    .item-product > .thumbnail {
+        background-color: #11698E;
+        border-radius: 40px;
+        color: #fff;
+        padding: 16px;
+    }
+
+    .btn-product {
+        width: 100%;
+    }
+
+    .productbox {
+        background-color: #ffffff;
+        padding: 10px;
+        margin-bottom: 10px;
+        -webkit-box-shadow: 0 8px 6px -6px #999;
+        -moz-box-shadow: 0 8px 6px -6px #999;
+        box-shadow: 0 8px 6px -6px #999;
+    }
+
+    .producttitle {
+        font-weight: bold;
+        padding: 5px 0 5px 0;
+    }
+
+    .productprice {
+        border-top: 1px solid #dadada;
+        padding-top: 5px;
+    }
+
+    .pricetext {
+        font-weight: bold;
+        font-size: 1.4em;
+    }
+
+    #SearchString {
+        width: 200px;
+        margin: 3px;
+    }
+</style>
+<h2>All type of products</h2>
+@if (SignInManager.IsSignedIn(User))
+{
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+}
+
+
+@using (Html.BeginForm("Index", "Products", FormMethod.Get))
+
+{
+
+    <p style="display:flex">
+
+        Find by name: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string, new { @class = "form-control", @placeholder = "Seach by name"})
+
+        <input type="submit" class="btn btn-secondary" style="margin:3px" value="Search" />
+
+    </p>
+
+}
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+
+        <div class="col-sm-6 col-md-4 column item-product">
+            <div class="thumbnail">
+                <h4 class="text-center">
+                    <span class="label label-info">
+                        @item.category
+                    </span>
+                </h4>
+                <img style="width: -webkit-fill-available;" src="http://placehold.it/460x250/e67e22/ffffff&text=HTML5" class="img-responsive">
+                <div class="caption">
+                    <div class="row">
+                        <div class="col-md-6 col-xs-6">
+                            <h3>@item.name</h3>
+                            @if (SignInManager.IsSignedIn(User))
+                            {
+                                <div class="edit-crud-products">
+                                    @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                                    @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                                    @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                                </div>
+                            }
+                        </div>
+                        <div class="col-md-6 col-xs-6 price">
+                            <h3>
+                                <label>$ @item.price</label>
+                            </h3>
+                        </div>
+                    </div>
+                    <p>
+                        @item.description
+                    </p>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <a class="btn btn-primary btn-product">
+                                <span class="glyphicon glyphicon-thumbs-up"></span>
+                                @item.dateadded
+                            </a>
+                        </div>
+                        <div class="col-md-6">
+                            <a href="#" class="btn @(item.isactive ? "btn-success" : "btn-danger") btn-product">
+                                <span class="glyphicon glyphicon-shopping-cart"></span>
+                                IsActive: @item.isactive
+                            </a>
+                        </div>
+                    </div>
+
+                    <p> </p>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<br />
+@* <table class="table">
+    <tr>
+
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.isactive)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dateadded)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.category)
+        </th>
+        <th></th>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.description)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.price)
+            </td>
+            <th>
+                @Html.DisplayFor(model => item.isactive)
+            </th>
+            <td>
+                @Html.DisplayFor(modelItem => item.dateadded)
+            </td>
+            <th>
+                @Html.DisplayFor(model => item.category)
+            </th>
+            @if (SignInManager.IsSignedIn(User))
+            {
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                </td>
+            }
+        </tr>
+    }
+
+</table>
+ *@

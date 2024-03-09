@@ -1,0 +1,284 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - VetCareConnect</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/PostgreSqlDotnetCore.styles.css" asp-append-version="true" />
+    @* <link rel="stylesheet" href="~/css/reset.css" asp-append-version="true" /> *@
+    @* <link rel="stylesheet" href="~/css/styles.css" asp-append-version="true" /> *@
+    
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">VetCareConnect</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Pets" asp-action="Index">Pets</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Products" asp-action="Index">Products</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="PetCares" asp-action="Index">Pet Cares</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Customer" asp-action="Index">Manage Customers</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="City" asp-action="Index">Manage Cities</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Blog" asp-action="Index">BlogPost</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="VetCenter" asp-action="Index">VetCenters</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Contact">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li>
+                    </ul>
+                    <partial name="_LoginPartial" />
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        @if (ViewBag.ShowTopBar != null && ViewBag.ShowTopBar)
+        {
+            <section id="hero-container">
+
+                <div class="container hero">
+
+                    <div class="hero-text">
+
+                        <h1 class="herotxt">
+                            Take care of your pet<br> with the love he<br> deserve
+                        </h1>
+
+                        <p class="text-p">
+                            Our experts are ready to take care of your best friend's health and cleanliness with exclusive service!
+                        </p>
+
+
+
+                        <a class="btn btn-primary" href="" target="_blank">
+
+                            <svg width="24" height="24" viewBox="0 0 24 24" class="none" xmlns="http://www.w3.org/2000/svg">
+
+                                <path d="M16.6004 14C16.4004 13.9 15.1004 13.3 14.9004 13.2C14.7004 13.1 14.5004 13.1 14.3004 13.3C14.1004 13.5 13.7004 14.1 13.5004 14.3C13.4004 14.5 13.2004 14.5 13.0004 14.4C12.3004 14.1 11.6004 13.7 11.0004 13.2C10.5004 12.7 10.0004 12.1 9.60039 11.5C9.50039 11.3 9.60039 11.1 9.70039 11C9.80039 10.9 9.90039 10.7 10.1004 10.6C10.2004 10.5 10.3004 10.3 10.3004 10.2C10.4004 10.1 10.4004 9.90004 10.3004 9.80004C10.2004 9.70004 9.70039 8.50004 9.50039 8.00004C9.40039 7.30004 9.20039 7.30004 9.00039 7.30004C8.90039 7.30004 8.70039 7.30004 8.50039 7.30004C8.30039 7.30004 8.00039 7.50004 7.90039 7.60004C7.30039 8.20004 7.00039 8.90004 7.00039 9.70004C7.10039 10.6 7.40039 11.5 8.00039 12.3C9.10039 13.9 10.5004 15.2 12.2004 16C12.7004 16.2 13.1004 16.4 13.6004 16.5C14.1004 16.7 14.6004 16.7 15.2004 16.6C15.9004 16.5 16.5004 16 16.9004 15.4C17.1004 15 17.1004 14.6 17.0004 14.2C17.0004 14.2 16.8004 14.1 16.6004 14ZM19.1004 4.90004C15.2004 1.00004 8.90039 1.00004 5.00039 4.90004C1.80039 8.10004 1.20039 13 3.40039 16.9L2.00039 22L7.30039 20.6C8.80039 21.4 10.4004 21.8 12.0004 21.8C17.5004 21.8 21.9004 17.4 21.9004 11.9C22.0004 9.30004 20.9004 6.80004 19.1004 4.90004ZM16.4004 18.9C15.1004 19.7 13.6004 20.2 12.0004 20.2C10.5004 20.2 9.10039 19.8 7.80039 19.1L7.50039 18.9L4.40039 19.7L5.20039 16.7L5.00039 16.4C2.60039 12.4 3.80039 7.40004 7.70039 4.90004C11.6004 2.40004 16.6004 3.70004 19.0004 7.50004C21.4004 11.4 20.3004 16.5 16.4004 18.9Z" fill="white" />
+
+                            </svg> Shedule APPOINTMENT
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <div class="hero-img">
+
+                    <img src="~/img/slika4.png" alt="">
+
+                </div>
+
+            </section>
+
+            <section id="services-container">
+
+            <div class="container services">
+
+                <header>
+
+                    <span style="color:#fff" class="overtitle">Our services</span>
+
+                    <h1 style="color:#fff" class="title">See what we do best</h1>
+
+                </header>
+
+
+
+                <div class="services-list">
+
+                    <div class="service-card">
+
+                            <img src="~/img/slika3.png" alt="" srcset="" style="border-radius: 25px;">
+
+                        <div class="service-text">
+
+                            <h3>Veterinary services</h3>
+
+                            <p>Take care of your friend's health with exams, vaccinations and consultations.</p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="service-card">
+
+                            <img src="~/img/slika1.png" alt="" srcset="" style="border-radius: 25px;">
+
+                        <div class="service-text">
+
+                            <h3>Bath and grooming</h3>
+
+                            <p>Keep your pet clean with our exclusive products.</p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="service-card">
+
+                            <img src="~/img/slika2.png" alt="" srcset="" style="border-radius: 25px;">
+
+                        <div class="service-text">
+
+                            <h3>Accommodation</h3>
+
+                            <p>Are you going to travel? Count on us to take care of your pet for as long as you need!</p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        }
+        <section id="base-container" style="padding:60px">
+
+            <div class="container location">
+                @RenderBody()
+            </div>
+        </section>
+
+        <section id="location-container">
+
+            <div class="container location">
+
+                <header>
+
+                    <span class="overtitle">WHERE ARE WE</span>
+
+                    <h1 class="title">Come visit us!</h1>
+
+                    <address>
+
+                        <svg width="28" height="29" viewBox="0 0 28 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+                            <path d="M20.5997 19.4496C19.451 20.5983 16.9847 23.0646 15.4138 24.6355C14.6327 25.4166 13.3679 25.4171 12.5868 24.6361C11.0427 23.0919 8.62595 20.6752 7.40036 19.4496C3.75546 15.8047 3.75546 9.89516 7.40036 6.25027C11.0453 2.60538 16.9548 2.60538 20.5997 6.25027C24.2446 9.89516 24.2446 15.8047 20.5997 19.4496Z" stroke="#16C79A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+
+                            <path d="M17.5 12.8499C17.5 14.7829 15.933 16.3499 14 16.3499C12.067 16.3499 10.5 14.7829 10.5 12.8499C10.5 10.9169 12.067 9.34993 14 9.34993C15.933 9.34993 17.5 10.9169 17.5 12.8499Z" stroke="#16C79A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+
+                        </svg>
+
+                        <span class="end">Skopje, Macedonia, 123</span>
+
+                    </address>
+
+                </header>
+
+            </div>
+
+            <iframe src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Skopje+(VetCare)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+        </section>
+
+    </main>
+
+    <footer style="padding: 150px">
+        <div class="footer_image" style="position: absolute; right: 0; margin-top: -360px;">
+            <img src="~/img/slika5.png" alt="">
+        </div>
+        <div class="container">
+
+            <div class="footer-logocopy">
+
+
+                <span>&copy; 2024 - FINKI - VetCareConnect. All rights reserved..</span>
+
+            </div>
+
+            <div>
+
+                <a href="#">
+
+                    <svg width="41" height="40" viewBox="0 0 41 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+                        <path d="M32.3333 20.0026C32.3338 17.7092 31.6771 15.4638 30.4409 13.532C29.2048 11.6003 27.441 10.0633 25.3584 9.10287C23.2758 8.14249 20.9617 7.799 18.6899 8.11307C16.4181 8.42714 14.2839 9.38562 12.54 10.875C10.7961 12.3644 9.5155 14.3224 8.84985 16.517C8.18419 18.7116 8.16137 21.0511 8.78407 23.2583C9.40677 25.4655 10.6489 27.448 12.3634 28.9712C14.078 30.4943 16.193 31.4943 18.4583 31.8526V23.4706H15.4123V20.0026H18.4583V17.3576C18.3928 16.7404 18.464 16.1163 18.6665 15.5296C18.8691 14.9429 19.1982 14.4079 19.6305 13.9625C20.0629 13.5171 20.5878 13.1722 21.1682 12.9522C21.7486 12.7323 22.3703 12.6426 22.9893 12.6896C23.8893 12.7016 24.7873 12.7796 25.6763 12.9236V15.8806H24.1643C23.9067 15.8468 23.6448 15.8714 23.398 15.9526C23.1512 16.0337 22.9259 16.1694 22.7386 16.3494C22.5513 16.5295 22.407 16.7494 22.3162 16.9928C22.2254 17.2362 22.1906 17.4969 22.2143 17.7556V20.0056H25.5423L25.0103 23.4736H22.2083V31.8606C25.0317 31.414 27.603 29.9741 29.4591 27.8002C31.3153 25.6263 32.3345 22.8612 32.3333 20.0026Z" fill="white" />
+
+                    </svg>
+
+                </a>
+
+                <a href="#">
+
+                    <svg width="41" height="40" viewBox="0 0 41 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+                        <path d="M32.6666 12.25C31.7666 12.7 30.8666 12.85 29.8166 13C30.8666 12.4 31.6166 11.5 31.9166 10.3C31.0166 10.9 29.9666 11.2 28.7666 11.5C27.8666 10.6 26.5166 10 25.1666 10C22.6166 10 20.3666 12.25 20.3666 14.95C20.3666 15.4 20.3666 15.7 20.5166 16C16.4666 15.85 12.7166 13.9 10.3166 10.9C9.86663 11.65 9.71663 12.4 9.71663 13.45C9.71663 15.1 10.6166 16.6 11.9666 17.5C11.2166 17.5 10.4666 17.2 9.71663 16.9C9.71663 19.3 11.3666 21.25 13.6166 21.7C13.1666 21.85 12.7166 21.85 12.2666 21.85C11.9666 21.85 11.6666 21.85 11.3666 21.7C11.9666 23.65 13.7666 25.15 16.0166 25.15C14.3666 26.5 12.2666 27.25 9.86663 27.25H8.66663C10.9166 28.6 13.4666 29.5 16.1666 29.5C25.1666 29.5 30.1166 22 30.1166 15.55V14.95C31.1666 14.2 32.0666 13.3 32.6666 12.25Z" fill="white" />
+
+                    </svg>
+
+                </a>
+
+                <a href="#">
+
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+                        <path d="M27.2361 15.4582C26.9661 15.7283 26.5998 15.88 26.2179 15.88C25.8359 15.88 25.4697 15.7283 25.1996 15.4582C24.9296 15.1882 24.7779 14.8219 24.7779 14.44C24.7779 14.0581 24.9296 13.6918 25.1996 13.4218C25.4697 13.1517 25.8359 13 26.2179 13C26.5998 13 26.9661 13.1517 27.2361 13.4218C27.5062 13.6918 27.6579 14.0581 27.6579 14.44C27.6579 14.8219 27.5062 15.1882 27.2361 15.4582Z" fill="white" />
+
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M13.9999 20.602C13.9999 23.911 16.6909 26.602 19.9999 26.602C23.3089 26.602 25.9999 23.911 25.9999 20.602C25.9999 17.293 23.3089 14.602 19.9999 14.602C16.6909 14.602 13.9999 17.293 13.9999 20.602ZM16.9999 20.602C16.9999 18.947 18.3448 17.602 19.9999 17.602C21.6549 17.602 22.9999 18.947 22.9999 20.602C22.9999 22.257 21.6549 23.602 19.9999 23.602C18.3448 23.602 16.9999 22.257 16.9999 20.602Z" fill="white" />
+
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M7.99988 26C7.99988 29.084 10.9159 32 13.9999 32H25.9999C29.0839 32 31.9999 29.084 31.9999 26V14C31.9999 10.916 29.0839 8 25.9999 8H13.9999C10.9159 8 7.99988 10.916 7.99988 14V26ZM10.9999 14C10.9999 12.598 12.5979 11 13.9999 11H25.9999C27.4019 11 28.9999 12.598 28.9999 14V26C28.9999 27.402 27.4019 29 25.9999 29H13.9999C12.5699 29 10.9999 27.43 10.9999 26V14Z" fill="white" />
+
+                    </svg>
+
+                </a>
+
+            </div>
+
+        </div>
+    </footer>
+    @* <footer class="border-top footer text-muted">
+    <div class="container">
+    &copy; 2024 - FINKI - VetCareConnect- <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    </div>
+    </footer> *@
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+    <script>
+        (function () {
+
+            $(".nav-item .nav-link").on("click", function () {
+                $(".nav-item").find(".active").removeClass("active");
+                $(this).addClass("active");
+            });
+        });
+    </script>
+</body>
+</html>

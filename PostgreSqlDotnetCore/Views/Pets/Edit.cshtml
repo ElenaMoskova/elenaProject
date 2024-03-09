@@ -1,0 +1,80 @@
+﻿@model PostgreSqlDotnetCore.Models.PetsClass
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <h4>PetsClass</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.id)
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.color, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.color, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.color, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.description, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.description, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.description, "", new { @class = "text-danger" })
+        </div>
+    </div>
+ @*    <div class="form-group">
+        @Html.LabelFor(model => model.dateofbirthday, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.dateofbirthday, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.dateofbirthday, "", new { @class = "text-danger" })
+        </div>
+    </div> *@
+    
+    <div class="form-group">
+        <label asp-for="dateofbirthday" class="control-label"></label>
+        <input asp-for="dateofbirthday" class="form-control" type="date" />
+        <span asp-validation-for="dateofbirthday" class="text-danger"></span>
+    </div>
+
+@*     <div class="form-group">
+        @Html.LabelFor(model => model.typeofpetsid, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.typeofpetsid, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.typeofpetsid, "", new { @class = "text-danger" })
+        </div>
+    </div> *@
+        <div class="form-group">
+            <label class="control-label col-md-2" for="typeofpetsid">Type:</label>
+            <div class="col-md-10 ">
+
+                <select class="form-control" id="typeofpetsid" name="typeofpetsid">
+                    <option value="">Select type</option>
+                    <option value="1">Cat</option>
+                    <option value="2">Dog</option>
+                    @*  <option value="3">Dog</option>
+                <option value="4">Cat</option>
+                <option value="5">Dog</option> *@
+                    <!-- Додадете ги другите улоги како опции според вашата апликација -->
+                </select>
+            </div>
+        </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Save" class="btn btn-dark" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

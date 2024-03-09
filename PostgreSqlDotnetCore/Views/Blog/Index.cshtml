@@ -1,0 +1,55 @@
+﻿@model IEnumerable<PostgreSqlDotnetCore.Models.BlogPostConsultation>
+
+@{
+    ViewBag.Title = "BlogPostConsultation";
+}
+
+<h2>Blog post for consultations.</h2>
+
+<p>
+    @Html.ActionLink("Ask for Advice", "Create")
+</p>
+<table class="table">
+    <tr>
+
+        <th>
+            @Html.DisplayNameFor(model => model.date_askes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.users_id)
+        </th>
+        <th></th>
+
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.date_askes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.title)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.description)
+        </td>
+        <th>
+            @Html.DisplayFor(model => item.users_id)
+        </th>
+
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+            @Html.ActionLink("Details", "Details", new { id = item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.id })
+        </td>
+    </tr>
+}
+
+</table>

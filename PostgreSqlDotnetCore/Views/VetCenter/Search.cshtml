@@ -1,0 +1,36 @@
+﻿@model IEnumerable<PostgreSqlDotnetCore.Models.VetCenter>
+
+@{
+    ViewBag.Title = "Vet Centers";
+}
+
+<h2>Vet Centers</h2>
+
+<!-- Search form -->
+<form class="form-inline my-2 my-lg-0" action="@Url.Action("Index", "VetCenter")" method="GET">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search Vet Centers" aria-label="Search" name="searchTerm">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+        <i class="fas fa-search"></i>
+    </button>
+</form>
+
+<!-- Vet Center list -->
+<table class="table">
+    <thead>
+        <tr>
+            <th>name</th>
+           
+            <!-- Add more columns as needed -->
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var vetCenter in Model)
+        {
+            <tr>
+                <td>@vetCenter.name</td>
+               
+                <!-- Add more columns as needed -->
+            </tr>
+        }
+    </tbody>
+</table>

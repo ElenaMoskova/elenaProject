@@ -1,0 +1,51 @@
+﻿@model IEnumerable<PostgreSqlDotnetCore.Models.JobsClass>
+
+@{
+    ViewBag.Title = "JobsClass";
+}
+
+<h2>JobsClass</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+
+        <th>
+            @Html.DisplayNameFor(model => model.description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.predictedsalery)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.vetcentersid)
+        </th>
+    
+        <th></th>
+
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.predictedsalery)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.vetcentersid)
+        </td>
+     
+
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+            @Html.ActionLink("Details", "Details", new { id = item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.id })
+        </td>
+    </tr>
+}
+
+</table>

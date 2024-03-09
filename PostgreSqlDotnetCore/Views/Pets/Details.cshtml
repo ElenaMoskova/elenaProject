@@ -1,0 +1,55 @@
+﻿@model PostgreSqlDotnetCore.Models.PetsClass
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PetsClass</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.color)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.color)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.description)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.dateofbirthday)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dateofbirthday)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.usersid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.usersid)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.typeofpetsid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.typeofpetsid)
+        </dd>
+
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
